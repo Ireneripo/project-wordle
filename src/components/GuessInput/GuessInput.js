@@ -1,25 +1,24 @@
 import React from "react";
 
-function GuessInput() {
-  const [guess, setGuess] = React.useState("");
-  console.log(guess);
+function GuessInput({ handleSubmitGuess }) {
+  const [tentativeGuess, setTentativeGuess] = React.useState("");
 
   function handleSubmit(event) {
     event.preventDefault();
-    if (guess.length !== 5) {
+    if (tentativeGuess.length !== 5) {
       window.alert("Please enter exactly 5 characters 💖");
       return;
     }
 
-    console.log({ guess });
+    handleSubmitGuess(tentativeGuess);
 
-    setGuess("");
+    setTentativeGuess("");
   }
 
   return (
     <form
       className="guess-input-wrapper"
-      value={guess}
+      value={tentativeGuess}
       onSubmit={handleSubmit}
     >
       <label htmlFor="guess-input">Enter guess:</label>
@@ -29,10 +28,10 @@ function GuessInput() {
         maxLength={5}
         pattern="[a-zA-Z]{5}"
         title="5 letter word"
-        value={guess}
+        value={tentativeGuess}
         onChange={(event) => {
           const nextGuess = event.target.value.toUpperCase();
-          setGuess(nextGuess);
+          setTentativeGuess(nextGuess);
         }}
         id="guess-input"
         type="text"
