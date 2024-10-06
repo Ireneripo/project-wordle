@@ -1,6 +1,6 @@
 import React from "react";
 
-function GuessInput({ className, htmlFor, children }) {
+function GuessInput() {
   const [guess, setGuess] = React.useState("");
   console.log(guess);
 
