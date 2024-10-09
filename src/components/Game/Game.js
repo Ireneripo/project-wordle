@@ -33,7 +33,6 @@ function Game() {
 
   return (
     <>
-      {gameStatus}
       <GuessResults
         guesses={guesses}
         answer={answer}
